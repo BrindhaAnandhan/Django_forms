@@ -26,3 +26,20 @@ def Employee(request):
         else:
             data['message'] = "Invalid"
     return render(request, 'Employee.html', data)
+
+def Show(request):
+    EFO1 = Show_Info_Forms()
+    data = {'EFO1':EFO1, 'massage': ''}
+    
+    if request.method =="POST":
+        SFDO = Show_Info_Forms(request.POST)
+        try:
+            if SFDO.is_valid():
+                data['massage'] = "Yes you are our employee"
+        except Exception as msg:
+            data['massage'] = 'Error' + str(msg)
+
+    return render(request, 'info.html', data)
+        
+
+

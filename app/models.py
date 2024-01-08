@@ -10,3 +10,11 @@ class EmployeeInfo(models.Model):
 
     def __str__(self):
         return self.Name
+
+
+class Show_Info(models.Model):
+    Name = models.ForeignKey(EmployeeInfo, on_delete = models.CASCADE)
+    
+
+    def __str__(self):
+        return self.Name
